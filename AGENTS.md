@@ -52,7 +52,7 @@ mvn test
 # Coverage report (generated at target/site/jacoco/index.html)
 mvn verify
 
-# Run the application (requires MySQL + SMTP configured in application.properties)
+# Run the application (requires PostgreSQL + SMTP configured in application.properties)
 mvn spring-boot:run
 # or
 java -jar target/users-management-2.0.0-SNAPSHOT.jar
@@ -80,7 +80,7 @@ java -jar target/users-management-2.0.0-SNAPSHOT.jar
 
 ## External Dependencies & Integration Points
 
-- **Database:** MySQL via raw JDBC (`spring-boot-starter-jdbc` provides `HikariCP`). Schema in `src/main/resources/schema.sql`. Config keys: `db.host`, `db.port`, `db.name`, `db.username`, `db.password`.  
+- **Database:** PostgreSQL via raw JDBC (`spring-boot-starter-jdbc` provides `HikariCP`). Schema in `src/main/resources/schema.sql`. Config keys: `db.host`, `db.port`, `db.name`, `db.username`, `db.password`, `db.ssl-mode` (env: `DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_USER`, `DB_PASSWORD`, `DB_SSLMODE`).  
 - **Email:** SMTP via `javax.mail` (legacy `com.sun.mail:javax.mail:1.6.2`). **Not** migrated to `jakarta.mail`. Config keys: `smtp.host`, `smtp.port`, `smtp.username`, `smtp.password`, `smtp.from.address`, `smtp.from.name`.  
 - **Password hashing:** `at.favre.lib:bcrypt` — cost factor 12. Always use `UserPassword.fromPlainText()` for new passwords and `UserPassword.fromHash()` when reading from DB.
 

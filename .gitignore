@@ -41,3 +41,16 @@ build/
 *.log
 
 /spec/
+
+### Environment ###
+.env
+.env.*
+!.env.example
+
+### Docker ###
+docker-compose.override.yml
+
+### Logs / temporales ###
+logs/
+*.tmp
+hs_err_pid*
